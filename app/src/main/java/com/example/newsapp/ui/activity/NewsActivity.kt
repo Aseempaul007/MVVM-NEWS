@@ -1,9 +1,14 @@
 package com.example.newsapp.ui.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
 import androidx.lifecycle.ViewModelProvider
+import com.example.newsapp.R
 import com.example.newsapp.databinding.ActivityNewsBinding
+import com.example.newsapp.listners.OnItemClickListener
 import com.example.newsapp.ui.fragment.BusinessFragment
 import com.example.newsapp.ui.fragment.EntertainmentFragment
 import com.example.newsapp.ui.fragment.HealthFragment
@@ -24,31 +29,61 @@ class NewsActivity : AppCompatActivity() {
         binding = ActivityNewsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        newsViewModel = ViewModelProvider(this).get(NewsViewModel::class.java)
-        Constants.goToFragment(supportFragmentManager,TopHeadlineFragment())
+        newsViewModel = ViewModelProvider(this)[NewsViewModel::class.java]
+
+        if(Constants.isNetworkAvailable(this)){
+            Constants.goToFragment(supportFragmentManager,TopHeadlineFragment())
+        }else{
+            Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show()
+        }
 
         binding.entertainment.setOnClickListener {
-            Constants.goToFragment(supportFragmentManager,EntertainmentFragment())
+            if(Constants.isNetworkAvailable(this)){
+                Constants.goToFragment(supportFragmentManager,EntertainmentFragment())
+            }else{
+                Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.science.setOnClickListener {
-            Constants.goToFragment(supportFragmentManager,ScienceFragment())
+            if(Constants.isNetworkAvailable(this)){
+                Constants.goToFragment(supportFragmentManager,ScienceFragment())
+            }else{
+                Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.sports.setOnClickListener {
-            Constants.goToFragment(supportFragmentManager,SportsFragment())
+            if(Constants.isNetworkAvailable(this)){
+                Constants.goToFragment(supportFragmentManager,EntertainmentFragment())
+            }else{
+                Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.technology.setOnClickListener {
-            Constants.goToFragment(supportFragmentManager,TechnologyFragment())
+            if(Constants.isNetworkAvailable(this)){
+                Constants.goToFragment(supportFragmentManager,TechnologyFragment())
+            }else{
+                Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.business.setOnClickListener {
-            Constants.goToFragment(supportFragmentManager,BusinessFragment())
+            if(Constants.isNetworkAvailable(this)){
+                Constants.goToFragment(supportFragmentManager,BusinessFragment())
+            }else{
+                Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show()
+            }
         }
 
         binding.health.setOnClickListener {
-            Constants.goToFragment(supportFragmentManager,HealthFragment())
+            if(Constants.isNetworkAvailable(this)){
+                Constants.goToFragment(supportFragmentManager,HealthFragment())
+            }else{
+                Toast.makeText(this, "Please connect to the internet", Toast.LENGTH_SHORT).show()
+            }
         }
     }
+
 }

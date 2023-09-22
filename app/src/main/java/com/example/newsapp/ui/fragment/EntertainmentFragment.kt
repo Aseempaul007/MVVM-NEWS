@@ -1,5 +1,7 @@
 package com.example.newsapp.ui.fragment
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -10,6 +12,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.newsapp.adapter.NewsAdapter
 import com.example.newsapp.databinding.FragmentEntertainmentBinding
+import com.example.newsapp.listners.OnItemClickListener
+import com.example.newsapp.ui.activity.NewsWebActivity
 import com.example.newsapp.util.Constants
 import com.example.newsapp.viewmodel.NewsViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,7 +22,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 @AndroidEntryPoint
-class EntertainmentFragment : Fragment() {
+class EntertainmentFragment : Fragment(), OnItemClickListener {
 
     private var binding: FragmentEntertainmentBinding? = null
     private var viewModel: NewsViewModel? = null
@@ -41,12 +45,19 @@ class EntertainmentFragment : Fragment() {
             withContext(Dispatchers.Main){
                 binding?.progressBar?.setVisibility(View.INVISIBLE)
                 binding?.newsRecycler?.adapter = NewsAdapter(requireContext(),news!!.articles,
-                    viewModel!!
+                    viewModel!!,
+                    this@EntertainmentFragment
                 )
                 binding?.newsRecycler?.layoutManager = LinearLayoutManager(requireContext())
             }
 
         }
         return binding?.root
+    }
+
+    override fun onItemClick(position: Int) {
+        val i = Intent(requireContext(),NewsWebActivity::class.java)
+        i.putExtra("news_url",viewModel?.currentNews)
+        startActivity(i)
     }
 }

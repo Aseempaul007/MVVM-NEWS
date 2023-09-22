@@ -6,55 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.NewsActivity">
 
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
-        android:layout_width="0dp"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/topAppBar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/top_app_bar"
-            app:navigationIcon="@drawable/baseline_menu"
-            app:title="@string/news_world"
-            app:titleCentered="true" />
+            android:layout_height="match_parent">
 
-    </com.google.android.material.appbar.AppBarLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/bold"
+                android:text="@string/news_world"
+                android:textColor="@color/black"
+                android:textSize="28sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.appcompat.widget.Toolbar>
 
 
     <HorizontalScrollView
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_height="?attr/actionBarSize"
         android:background="#00FFFFFF"
         android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appBarLayout">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginTop="4dp"
             android:background="#00FFFFFF"
             android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/entertainment"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="6dp"
-                android:layout_marginTop="4dp"
-                android:layout_marginRight="6dp"
-                android:background="@drawable/button_category"
-                android:paddingLeft="8dp"
-                android:paddingRight="8dp"
-                android:text="Entertainment" />
 
             <Button
                 android:id="@+id/science"
@@ -63,7 +61,8 @@
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="6dp"
-                android:background="@drawable/button_category"
+                android:background="@drawable/button_science"
+                android:fontFamily="@font/semibold"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:text="Science" />
@@ -75,7 +74,8 @@
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="6dp"
-                android:background="@drawable/button_category"
+                android:background="@drawable/button_sports"
+                android:fontFamily="@font/semibold"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:text="Sports" />
@@ -87,10 +87,24 @@
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="6dp"
-                android:background="@drawable/button_category"
+                android:background="@drawable/button_technology"
+                android:fontFamily="@font/semibold"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:text="Technology" />
+
+            <Button
+                android:id="@+id/entertainment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginRight="6dp"
+                android:background="@drawable/button_entertainment"
+                android:fontFamily="@font/semibold"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:text="Entertainment" />
 
             <Button
                 android:id="@+id/business"
@@ -100,7 +114,8 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="6dp"
                 android:layout_marginBottom="4dp"
-                android:background="@drawable/button_category"
+                android:background="@drawable/button_business"
+                android:fontFamily="@font/semibold"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:text="Business" />
@@ -113,7 +128,8 @@
                 android:layout_marginLeft="6dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginRight="6dp"
-                android:background="@drawable/button_category"
+                android:background="@drawable/button_health"
+                android:fontFamily="@font/semibold"
                 android:paddingLeft="4dp"
                 android:paddingRight="4dp"
                 android:text="Health" />
@@ -124,10 +140,11 @@
         android:id="@+id/newsFrame"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:background="@color/white"
+        android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
