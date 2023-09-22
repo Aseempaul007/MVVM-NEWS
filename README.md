@@ -5,7 +5,7 @@ Technology Used: Android Studio, Firebase, MVVM, Android jetpack, Dagger-Hilt, R
 
 
 
-![image](https://github.com/Aseempaul007/MVVM-NEWS/assets/60665514/9214fb11-3542-47a1-afda-896eec352e20)           ![image](https://github.com/Aseempaul007/MVVM-NEWS/assets/60665514/c66888d9-1119-444c-b474-30b92dcdd033)
+![image](https://github.com/Aseempaul007/MVVM-NEWS/assets/60665514/9214fb11-3542-47a1-afda-896eec352e20)                        ![image](https://github.com/Aseempaul007/MVVM-NEWS/assets/60665514/c66888d9-1119-444c-b474-30b92dcdd033)
 
 
 
