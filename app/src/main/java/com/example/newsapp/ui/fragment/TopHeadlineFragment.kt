@@ -36,7 +36,7 @@ class TopHeadlineFragment : Fragment(), OnItemClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
 
         binding = FragmentTopHeadlineBinding.inflate(inflater, container, false)
         viewModel = ViewModelProvider(this).get(NewsViewModel::class.java)

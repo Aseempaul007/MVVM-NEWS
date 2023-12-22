@@ -34,14 +34,14 @@ class NewsWebActivity : AppCompatActivity() {
             binding!!.progressBar.setVisibility(View.VISIBLE)
             binding?.webView?.loadUrl(url.toString())
             binding?.webView?.webViewClient = WebViewClient()
-            webSettings?.setLoadWithOverviewMode(true);
-            webSettings?.setUseWideViewPort(true);
-            webSettings?.setJavaScriptEnabled(true);
-            webSettings?.setCacheMode(WebSettings.LOAD_NO_CACHE);
-            webSettings?.setDatabaseEnabled(false);
-            webSettings?.setDomStorageEnabled(false);
-            webSettings?.setGeolocationEnabled(false);
-            webSettings?.setSaveFormData(false);
+            webSettings?.setLoadWithOverviewMode(true)
+            webSettings?.setUseWideViewPort(true)
+            webSettings?.setJavaScriptEnabled(true)
+            webSettings?.setCacheMode(WebSettings.LOAD_NO_CACHE)
+            webSettings?.setDatabaseEnabled(false)
+            webSettings?.setDomStorageEnabled(false)
+            webSettings?.setGeolocationEnabled(false)
+            webSettings?.setSaveFormData(false)
             binding!!.progressBar.visibility = View.INVISIBLE
         }else{
             Toast.makeText(this, "Something went wrong!", Toast.LENGTH_SHORT).show()
